@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../backend/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Url {
+  id          BigInt   @id @default(autoincrement())
+  originalUrl String   @db.Text
+  shortCode   String   @unique @db.VarChar(16)
+  clickCount  Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  @@index([createdAt])
+}

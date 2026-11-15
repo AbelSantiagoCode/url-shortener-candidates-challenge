@@ -4,8 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "turbo dev",
-    "build": "turbo build",
+    "build": "pnpm db:generate && turbo build",
     "typecheck": "turbo typecheck",
+    "db:generate": "pnpm --filter backend db:generate",
+    "db:migrate": "pnpm --filter backend db:migrate",
+    "db:migrate:deploy": "pnpm --filter backend db:migrate:deploy",
     "clean": "turbo run clean && rm -rf .turbo",
     "clean:deep": "pnpm run clean && pnpm -r exec rm -rf node_modules && rm -rf node_modules"
   },

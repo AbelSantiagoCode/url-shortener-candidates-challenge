@@ -1,13 +1,9 @@
 node_modules
 **/node_modules
+**/dist
+**/build
+**/generated
 .git
-.gitignore
-*.md
 .env
 .env.*
 !.env.example
-**/dist
-**/build
-**/.react-router
-.turbo
-**/.turbo

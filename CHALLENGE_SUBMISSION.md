@@ -2,16 +2,16 @@
 
 ## What I Did
 
-<!-- Briefly describe what you implemented or improved. What did you prioritize and why? -->
+Refactored the starter into a React Router frontend and an Express/TypeScript backend workspace. The backend uses Clean Architecture boundaries, Prisma/PostgreSQL persistence, Base62 short codes, Redis Cache-Aside for redirects, URL validation, persisted click statistics, and URL deletion with cache invalidation. The frontend now has a responsive create-link flow and a links dashboard with click counts and delete controls.
 
 ## What I Would Do With More Time
 
-<!-- What would you tackle next if you had more time? -->
+Add automated unit and integration tests, pagination and deletion, plus abuse controls such as rate limiting and destination safety checks.
 
 ## AI Usage
 
-<!-- How did you use AI tools (if any)? Include some example prompts if you used any agent. -->
+AI tools were used to help inspect the starter, plan the architecture, implement the refactor, and review build errors. Example prompt: “Refactor this URL shortener into a React Router frontend and a Clean Architecture Express backend with Prisma, PostgreSQL, Redis caching, and click statistics.”
 
 ## Feedback
 
-<!-- Any feedback on the challenge? Was it clear? Too easy/hard? Suggestions? -->
+The deliberately flawed starting point made the design improvements easy to demonstrate. A Docker Compose setup that includes the database and cache helps make the expected runtime dependencies clear.

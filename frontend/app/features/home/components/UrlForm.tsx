@@ -8,7 +8,7 @@ export function UrlForm({ error }: { error?: string }) {
     <label htmlFor="url">Long URL</label>
     <div className="form-row">
       <input id="url" type="url" name="url" placeholder="https://example.com/a/long/link" required autoComplete="url" />
-      <button type="submit" disabled={busy}>{busy ? "Shortening…" : "Shorten URL"}</button>
+      <button type="submit" disabled={busy} aria-busy={busy}>{busy ? <><span className="loading-spinner loading-spinner-small" aria-hidden="true" />Shortening…</> : "Shorten URL"}</button>
     </div>
     {error && <p className="error-message" role="alert">{error}</p>}
   </Form>;

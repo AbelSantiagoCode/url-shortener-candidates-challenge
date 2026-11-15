@@ -34,6 +34,10 @@ h1 span { color: #729479; }
 .hero-footnote { margin-top: 18px; display: flex; gap: 9px; color: #97a39a; font-size: 11px; }
 .site-footer { min-height: 68px; border-top: 1px solid #e4e9e3; display: flex; align-items: center; justify-content: space-between; color: #94a097; font-size: 10px; }
 .site-footer span:first-child { font-weight: 750; letter-spacing: 1.2px; }
+.loading-spinner { display: inline-block; width: 16px; height: 16px; flex: 0 0 16px; border: 2px solid #d7e5d5; border-top-color: #477b52; border-radius: 50%; animation: loading-spin .7s linear infinite; vertical-align: middle; }
+.loading-spinner-small { width: 12px; height: 12px; flex-basis: 12px; border-width: 1.5px; }
+.delete-button, .form-row button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; }
+@keyframes loading-spin { to { transform: rotate(360deg); } }
 .dashboard-shell { min-height: 100vh; }
 .dashboard-heading { display: flex; align-items: end; justify-content: space-between; gap: 28px; padding: 68px 0 47px; }
 .dashboard-heading h1 { font-size: clamp(40px, 5vw, 60px); letter-spacing: -3.5px; margin: 17px 0 0; }
@@ -42,6 +46,7 @@ h1 span { color: #729479; }
 .summary-card strong { font-size: 25px; letter-spacing: -1px; font-weight: 650; }
 .summary-card span { color: #89958c; font-size: 11px; }
 .links-section { padding-bottom: 72px; flex: 1; }
+.page-loading-state { min-height: 220px; display: flex; align-items: center; justify-content: center; gap: 11px; color: #718675; font-size: 13px; }
 .section-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
 .section-heading h2 { margin: 0; font-size: 15px; font-weight: 700; }
 .section-heading>span { color: #93a096; font-size: 11px; }

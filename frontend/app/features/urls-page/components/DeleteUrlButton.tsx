@@ -9,8 +9,8 @@ export function DeleteUrlButton({ id, shortUrl }: { id: string; shortUrl: string
   }}>
     <input type="hidden" name="_intent" value="deleteUrl" />
     <input type="hidden" name="id" value={id} />
-    <button className="delete-button" type="submit" disabled={busy} aria-label={`Delete ${shortUrl}`}>
-      {busy ? "Deleting…" : "Delete"}
+    <button className="delete-button" type="submit" disabled={busy} aria-busy={busy} aria-label={`Delete ${shortUrl}`}>
+      {busy ? <><span className="loading-spinner loading-spinner-small" aria-hidden="true" />Deleting…</> : "Delete"}
     </button>
     {fetcher.data?.error && <span className="delete-error" role="alert">{fetcher.data.error}</span>}
   </fetcher.Form>;

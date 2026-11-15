@@ -1,5 +1,6 @@
 import { listUrls } from "../../../api/urlApi.server";
 
 export async function listUrlsLoader() {
-  return { urls: await listUrls() };
+  // Return the promise so the route can render its loading shell immediately.
+  return { urls: listUrls() };
 }

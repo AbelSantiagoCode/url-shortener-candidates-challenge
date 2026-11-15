@@ -1,13 +1,6 @@
-const backendUrl = process.env.BACKEND_URL ?? "http://localhost:4000";
+import type { UrlRecord } from "./urlContracts.js";
 
-export interface UrlRecord {
-  id: string;
-  originalUrl: string;
-  shortCode: string;
-  shortUrl: string;
-  clickCount: number;
-  createdAt: string;
-}
+const backendUrl = process.env.BACKEND_URL ?? "http://localhost:4000";
 
 async function parseResponse<T>(response: Response): Promise<T> {
   const data = await response.json().catch(() => ({}));

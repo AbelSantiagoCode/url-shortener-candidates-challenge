@@ -28,7 +28,7 @@ export class UrlController {
       if (!request) { res.status(400).json({ error: "originalUrl must be a string." }); return; }
       const input: CreateUrlInput = { originalUrl: request.originalUrl };
       const created = await this.createUrl.execute(input);
-      const publicUrl = (process.env.PUBLIC_URL ?? "http://localhost:5173/s").replace(/\/$/, "");
+      const publicUrl = (process.env.PUBLIC_URL ?? "http://localhost:5173/go").replace(/\/$/, "");
       const response: CreateUrlResponse = {
         ...created,
         shortUrl: `${publicUrl}/${created.shortCode}`,
@@ -39,7 +39,7 @@ export class UrlController {
   };
   list = async (_req: Request, res: Response, next: NextFunction) => {
     try {
-      const publicUrl = (process.env.PUBLIC_URL ?? "http://localhost:5173/s").replace(/\/$/, "");
+      const publicUrl = (process.env.PUBLIC_URL ?? "http://localhost:5173/go").replace(/\/$/, "");
       const results = await this.getStatistics.execute({});
       const response: GetUrlStatisticsResponse = results.map((url) => ({
         ...url,

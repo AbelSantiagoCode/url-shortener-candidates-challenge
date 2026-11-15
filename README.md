@@ -48,4 +48,6 @@ The original `libs/engine` starter files are still present as a legacy reference
 - `GET /api/:shortCode` redirects and increments click statistics.
 - `DELETE /api/urls/:id` deletes a link and invalidates its Redis entry.
 
+Public short links use the semantic `/go/:shortCode` path, for example `http://localhost:3000/go/abc123`.
+
 For local development, copy `.env.example` to `.env`, run `docker compose up -d database redis`, then run `pnpm install`, `pnpm db:generate`, `pnpm db:migrate` once, and `pnpm dev`. The checked-in initial migration is applied by that command. For normal Compose startup, it is applied automatically before the API starts.

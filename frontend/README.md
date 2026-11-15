@@ -1,87 +1,15 @@
-# Welcome to React Router!
+# Frontend
 
-A modern, production-ready template for building full-stack React applications using React Router.
+React Router v7 frontend for the URL shortener. Install dependencies and run the full application from the workspace root; see the root README for Docker Compose and local development instructions.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## App structure
 
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+- `app/api` contains backend requests and frontend API contracts. `urlApi.server.ts` is server-only and is used by route loaders/actions.
+- `app/pages` contains screen-level page components.
+- `app/features/home` groups the home screen's form, layout, and form helper.
+- `app/features/urls-page` groups dashboard components, layout, and summary helper.
+- `app/components` contains generic components shared across pages.
+- `app/helpers` contains generic frontend helpers.
+- `app/routes/<page>/route.tsx` contains the React Router route module for that page. Its `loader` and `action` exports coordinate page data and form submissions.
+- `app/routes/<page>/actions` contains page-specific action handlers. The route action dispatches to a handler using the form's `_intent` value; these are handlers, not separate URLs.
+- `app/routes/<page>/loaders` contains page-specific loader implementations delegated to by the route module.

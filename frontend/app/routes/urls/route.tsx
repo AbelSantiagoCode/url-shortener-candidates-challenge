@@ -3,10 +3,15 @@ import { UrlsPage } from "../../pages/UrlsPage";
 import { deleteUrlAction } from "./actions/deleteUrlAction.server";
 import type { DeleteUrlActionResult } from "../../features/urls-page/contracts/DeleteUrlActionResult";
 import { listUrlsLoader } from "./loaders/listUrlsLoader.server";
+import { recordClickAction } from "./actions/recordClickAction.server";
+import type { RecordClickActionResult } from "../../features/urls-page/contracts/RecordClickActionResult";
+
+type UrlsActionResult = DeleteUrlActionResult | RecordClickActionResult;
 
 const actionHandlers = {
   deleteUrl: deleteUrlAction,
-} satisfies Record<string, (formData: FormData) => Promise<DeleteUrlActionResult>>;
+  recordClick: recordClickAction,
+} satisfies Record<string, (formData: FormData) => Promise<UrlsActionResult>>;
 
 type UrlsActionIntent = keyof typeof actionHandlers;
 
